@@ -11,7 +11,7 @@ var app = new Vue({
     axios.get('/tasks')
       .then((response) => {
         console.log(response);
-        this.tasks = response.data.items;
+        this.tasks = response.data.items || [];
         this.loading = false;
       })
       .catch((error) => {
