@@ -1,0 +1,9 @@
+.list-group-item {
+  list-style-type: none;
+}
+
+#app {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}

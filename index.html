@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Tasks</title>
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="http://unpkg.com/vue/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.3.2/theme-chalk/index.css">
+    <script src="http://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="http://unpkg.com/element-ui/lib/umd/locale/ja.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <el-main v-loading="loading">
+        <h2>My Tasks</h2>
+	    <el-input placeholder="Please input your task" v-model="newTask" v-on:change="addTask()"></el-input>
+        <ul class="list-group">
+          <li class="list-group-item" v-for="task in tasks">
+		    <el-checkbox :checked="task.done" v-on:change="doneTask(task)">{{ task.body }}</el-checkbox>
+          </li>
+        </ul>
+      </el-main>
+    </div>	
+    <script src="/static/app.js"></script>
+  </body>
+</html>
