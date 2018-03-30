@@ -24,6 +24,7 @@ var app = new Vue({
       this.loading = true;
       let params = new URLSearchParams();
       params.append('body', app.$data.newTask);
+      params.append('done', false);
       axios.post('/tasks', params)
         .then((response) => {
           this.loading = false;
