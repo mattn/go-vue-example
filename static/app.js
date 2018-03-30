@@ -41,7 +41,7 @@ var app = new Vue({
       let params = new URLSearchParams();
       params.append('done', !task.done);
       axios.put('/tasks/' + task.id, params)
-        .then(function (response) {
+        .then((response) => {
           console.log(response);
           this.loading = false;
         })
