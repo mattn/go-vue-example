@@ -26,7 +26,7 @@ func (controller *TasksController) createTask(c echo.Context) error {
 	task := &models.Task{}
 	task.SetAttributes(c.Request().Form)
 
-	defer task.Save()
+	task.Save()
 	if len(task.ErrorMessages()) == 0 {
 		return helpers.JSONResponseObject(c, 200, task)
 	}
@@ -68,7 +68,7 @@ func (controller *TasksController) updateTask(c echo.Context) error {
 
 	task.SetAttributes(c.Request().Form)
 
-	defer task.Save()
+	task.Save()
 	if len(task.ErrorMessages()) == 0 {
 		return helpers.JSONResponseObject(c, 200, task)
 	}
