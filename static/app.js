@@ -7,47 +7,47 @@ var app = new Vue({
     loading: false,
   },
   created: function() {
-    this.$data.loading = true;
+    this.loading = true;
     axios.get('/tasks')
       .then((response) => {
         console.log(response);
-        app.$data.tasks = response.data.items;
-        app.$data.loading = false;
+        this.tasks = response.data.items;
+        this.loading = false;
       })
       .catch((error) => {
         console.log(error);
-        app.$data.loading = false;
+        this.loading = false;
       });
   },
   methods: {
-    addTask: (task) => {
-      app.$data.loading = true;
+    addTask: function(task) {
+      this.loading = true;
       let params = new URLSearchParams();
       params.append('body', app.$data.newTask);
       axios.post('/tasks', params)
         .then((response) => {
-          app.$data.loading = false;
-          app.$data.tasks.push(response.data);
-          app.$data.newTask = "";
-          app.$data.loading = false;
+          this.loading = false;
+          this.tasks.push(response.data);
+          this.newTask = "";
+          this.loading = false;
         })
         .catch((error) => {
           console.log(error);
-          app.$data.loading = false;
+          this.loading = false;
         });
     },
-    doneTask: (task) => {
-      app.$data.loading = true;
+    doneTask: function(task) {
+      this.loading = true;
       let params = new URLSearchParams();
       params.append('done', !task.done);
       axios.put('/tasks/' + task.id, params)
         .then(function (response) {
           console.log(response);
-          app.$data.loading = false;
+          this.loading = false;
         })
         .catch((error) => {
           console.log(error);
-          app.$data.loading = false;
+          this.loading = false;
         });
     } 
   }
