@@ -27,7 +27,7 @@ var app = new Vue({
       axios.post('/tasks', params)
         .then((response) => {
           this.loading = false;
-          this.tasks.push(response.data);
+          this.tasks.unshift(response.data);
           this.newTask = "";
           this.loading = false;
         })
