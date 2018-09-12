@@ -7,3 +7,8 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.remove-item {
+  cursor: pointer;
+  font-size: 0.5em; 
+}

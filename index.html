@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>My Tasks</title>
     <link href="/static/style.css" rel="stylesheet">
     <script src="http://unpkg.com/vue/dist/vue.js"></script>
@@ -18,6 +19,7 @@
         <ul class="list-group">
           <li class="list-group-item" v-for="task in tasks">
             <el-checkbox :checked="task.done" v-on:change="doneTask(task)">{{ task.body }}</el-checkbox>
+            <span class="remove-item" @click="removeTask(task)">🗑️</span>
           </li>
         </ul>
       </el-main>
