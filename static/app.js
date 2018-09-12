@@ -30,6 +30,7 @@ var app = new Vue({
           this.loading = false;
           this.tasks.unshift(response.data);
           this.newTask = "";
+          vue.$forceUpdate();
           this.loading = false;
         })
         .catch((error) => {
